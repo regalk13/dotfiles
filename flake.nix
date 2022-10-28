@@ -1,45 +1,54 @@
 {
-  description = "A very basic flake";
+  description = "Personal regalk's nixos configuration";
 
   inputs = {
 	nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
   	home-manager = {
 		url = github:nix-community/home-manager;
-		# Use nix packages and not homw manager packages
+		# Use nix packages and not home manager packages
 		inputs.nixpkgs.follows = "nixpkgs";
 	};
+
+        nur = {
+        	url = "github:nix-community/NUR";                                   # NUR Packages
+      	};
+
+      	nixgl = {                                                             # OpenGL
+        	url = "github:guibou/nixGL";
+        	inputs.nixpkgs.follows = "nixpkgs";
+      	};
+
+      	emacs-overlay = {                                                     # Emacs Overlays
+        	url = "github:nix-community/emacs-overlay";
+        	flake = false;
+      	};
+
+      	doom-emacs = {                                                        # Nix-community Doom Emacs
+        	url = "github:nix-community/nix-doom-emacs";
+         	inputs.nixpkgs.follows = "nixpkgs";
+         	inputs.emacs-overlay.follows = "emacs-overlay";
+      	};
   };
 
-  outputs = { self, nixpkgs, home-manager }: 
+  outputs = inputs @ { self, nixpkgs, home-manager, nur, nixgl, doom-emacs, ... }: 
 	let
-	   system = "x86_64-linux";
- 	   pkgs = import nixpkgs {
-	   	inherit system;
-		config.allowUnfree = true;
-           };
+	    user = "regalk";
+	    location = "$home/.setup";  
 	   
-	   lib = nixpkgs.lib;
-	 in { 
-	     nixosConfigurations = {
-		regalk = lib.nixosSystem {
-			inherit system;
-			modules = [ ./configuration.nix ];
-		};
-             };
-	    hmConfig = {
-			home-manager.lib.homeManagerConfiguration = {
-			inherit system pkgs;
-			modules = [
-				./home.nix 
-					{
-					home = {
-						username = "regalk";
-						homeDirectory = "/home/regalk";
-						stateVersion = "22.05";
-						};
-					}
-				];
-	    		};
-		};
-	};
+	 in {
+      		nixosConfigurations = (                                               # NixOS configurations
+        		import ./hosts {                                              
+          		inherit (nixpkgs) lib;
+          		inherit inputs nixpkgs home-manager nur user location doom-emacs;   
+        }
+      );
+      homeConfigurations = (                                                # Non-NixOS configurations
+        import ./nix {
+          inherit (nixpkgs) lib;
+          inherit inputs nixpkgs home-manager nixgl user;
+        }
+      ); 
+	
+     };
+
  }
