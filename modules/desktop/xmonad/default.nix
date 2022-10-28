@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... };
+{ config, lib, pkgs, ... }:
 
 
 {
@@ -15,11 +15,11 @@
 			xmonad = {
 				enable = true;
 				enableContribAndExtras = true;
-				extraPackages = haskellPackages; [
+				extraPackages = haskellPackages: [
 					haskellPackages.dbus
-					haskellPacakges.List
+					haskellPackages.List
 					haskellPackages.monad-logger
-					haskellPacakges.xmonad
+					haskellPackages.xmonad
 				];
 			};
 		};
