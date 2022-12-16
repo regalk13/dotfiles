@@ -1,0 +1,370 @@
+#+TITLE: Emacs Configuration
+#+PROPERTY: header-args:emacs-lisp :tangle ~/.emacs.d/init.el
+#+AUTHOR: Regalk
+#+DESCRIPTION: Regalk's Emacs Config.
+
+* IMPORTANT! PUT THIS IN YOUR INIT.EL
+
+If you want Emacs load the config from org file to init.el you need to add this code. This tells emacs to use this file to load the configuration.
+
+#+begin_example
+(org-babel-load-file
+(expand-file-name
+"emacs.org"
+user-emacs-directory))
+#+end_example
+
+* ABOUT THIS CONFIG
+
+This is my personal Emacs config. Inspired by a brunch of resources I've found online. This is a vanilla emacs configuration whit some packages tome make a better experiencie whit this great elisp interpreter. I'm trying to maintain this config for me but also for works in every computer, but... need some changes to do that. If you have improves to my code just pull a request.
+
+
+* Setup the UI
+
+First of all I like this configuration to setup the UI of emacs, I delete the startup message, the menu-bar, tool-bar and some scroll bar that emacs have for default:
+
+#+begin_src emacs-lisp
+(setq inhibit-startup-message t)
+
+(scroll-bar-mode -1)
+(tool-bar-mode -1)
+(tooltip-mode -1)
+(set-fringe-mode 10)
+(menu-bar-mode -1)
+(setq visible-bell t)
+#+end_src
+
+* A few programs to load
+
+I add the repo of melpa, org and elpa to the source for packages, and after I load a few programs
+
+#+begin_src emacs-lisp
+      (require 'package)
+
+      (setq package-archives '(("melpa" . "https://melpa.org/packages/")
+				("org" . "https://orgmode.org/elpa/")
+				("elpa" . "https://elpa.gnu.org/packages")))
+
+      (add-to-list 'pacakge-archives
+		   (cons "gnu-devel" "https://elpa.gnu.org/devel/")
+		   t)
+      (package-initialize)
+      (unless package-archive-contents
+	  (package-refresh-contents))
+#+end_src
+
+** use-package
+
+Install use-package and enable ':ensure t' globally.  The ':ensure' keyword causes the package(s) within use-package statements to be installed automatically if not already present on your system.  To avoid having to add ':ensure t' to every use-package statement in this config, I set 'use-package-always-ensure'.
+
+#+begin_src emacs-lisp
+(unless (package-installed-p 'use-package)
+      (package-install 'use-package))      
+(setq use-package-always-ensure t)
+
+#+end_src
+
+* Themes and Fonts
+
+** Fonts
+
+Currently I'm using FiraCode Nerd Font, and I set this whit set-face-attribute as default and height of 97, you can change this in order to you display DPI, also I set all-the-icons:
+
+#+begin_src emacs-lisp
+(use-package all-the-icons)
+#+end_src
+
+** Themes
+
+I'm using the Doom Emacs themes, this repo have a lot of themes you can choose in my case im using a gruvbox theme for emacs... You can watch the repo and select your favorite theme. I set the teme for neotree, treemacs and org-config. And in code is this:
+
+#+begin_src emacs-lisp
+(use-package doom-themes
+  :ensure t
+  :config
+  (setq doom-themes-enable-bold t
+	doom-theemes-enable-italic t)
+    (load-theme 'gruber-darker t)
+  (doom-themes-neotree-config)
+  (setq doom-themes-treemacs-theme "doom-atom")
+  (doom-themes-treemacs-config)
+  (doom-themes-org-config))
+#+end_src
+
+** Rainbow delimiters
+
+The rainbow delimiters are a package to add different colors to parentheses, braces and brackets to find them when they are nested in a better way.
+
+#+begin_src emacs-lisp
+(use-package rainbow-delimiters
+  :hook (prog-mode . rainbow-delimiters-mode))
+#+end_src
+
+* Set key <escace>
+
+I set escape to quit of whatever thing in emacs:
+
+#+begin_src emacs-lisp
+(global-set-key (kbd "<escape>") 'keyboard-escape-quite)
+#+end_src
+
+* Columns and numbers
+
+Setting the columns and the numbers in, also I add a list to ignore add this column:
+
+#+begin_src emacs-lisp
+(column-number-mode)
+(global-display-line-numbers-mode t)
+
+(setq display-line-numbers 'relative)
+
+(dolist (mode '(org-mode-hook
+		term-mode-hook
+		shell-mode-hook
+		eshell-mode-hook))
+  (add-hook mode (lambda () (display-line-numbers-mode 0))))
+#+end_src
+
+* Adding command-log-mode
+
+Command-log-mode is a package to save all the history of keybindings, for testing and debuging and maybe my future streams:
+
+#+begin_src emacs-lisp
+(use-package command-log-mode)
+#+end_src
+
+* Whick key
+
+This package will show you the avaliable keybindings in popup:
+
+#+begin_src emacs-lisp
+(use-package which-key
+  :init (which-key-mode)
+  :diminish which-key-mode
+  :config
+  (setq which-key-idle-delay 1))
+#+end_src
+
+* Setting ivy and counsel
+
+Ivy is a generic completion mechanism for Emacs. While it operates similarly to other completion schemes such as icomplete-mode, Ivy aims to be more efficient, smaller, simpler, and smoother to use yet highly customizable.
+
+#+begin_src emacs-lisp
+(use-package command-log-mode)
+(use-package ivy
+  :diminish
+  :bind (("C-s" . swiper)
+         :map ivy-minibuffer-map
+         ("TAB" . ivy-alt-done)	
+         ("C-l" . ivy-alt-done)
+         ("C-j" . ivy-next-line)
+         ("C-k" . ivy-previous-line)
+         :map ivy-switch-buffer-map
+         ("C-k" . ivy-previous-line)
+         ("C-l" . ivy-done)
+         ("C-d" . ivy-switch-buffer-kill)
+         :map ivy-reverse-i-search-map
+         ("C-k" . ivy-previous-line)
+         ("C-d" . ivy-reverse-i-search-kill))
+  :config
+  (ivy-mode 1))
+
+; (global-set-key (kbd "C-M-j") 'counsel-switch-buffer)
+
+(require 'ivy)
+(require 'counsel)
+(counsel-mode)
+(ivy-mode)
+#+end_src
+
+** ivy-rich
+
+Setting the ivy-rich:
+
+#+begin_src emacs-lisp
+(use-package ivy-rich
+  :init
+  (ivy-rich-mode 1))
+#+end_src
+
+* Doom modeline
+
+A fancy and fast mode-line inspired by minimalism design.
+
+#+begin_src emacs-lisp
+(use-package doom-modeline
+  :ensure t
+  :init (doom-modeline-mode 1)
+  :custom ((doom-modeline-height 20)))
+#+end_src
+
+* General
+
+General package provides a more convenient method for binding keys in emacs (for both evil and non-evil users).
+
+#+begin_src emacs-lisp
+(use-package general
+  :config
+  (general-create-definer rune/leader-keys
+    ;;:keymaps '(normal insert visual emacs)
+    ;;:prefix "SPC"
+    :prefix "C-SPC"))
+#+end_src
+
+* Evil mode
+
+Evil is an extensible vi layer for Emacs. It emulates the main features of Vim, and provides facilities for writing custom extensions.
+
+#+begin_src emacs-lisp
+
+(use-package evil
+   :init
+   (setq evil-want-integration t)
+   (setq evil-want-keybinding nil)
+   (setq evil-want-C-u-scroll t)
+   (setq evil-want-C-i-jump nil)
+   :config
+   (evil-mode 1)
+   (define-key evil-insert-state-map (kbd "C-g") 'evil-normal-state)
+   (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
+
+   (evil-global-set-key 'motion "j" 'evil-next-visual-line)
+   (evil-global-set-key 'motion "k" 'evil-previous-visual-line)
+
+   (evil-set-initial-state 'messages-buffer-mode 'normal)
+   (evil-set-initial-state 'dashboard-mode 'normal))
+
+(use-package evil-collection
+  :after evil
+  :config
+  (evil-collection-init))
+
+#+end_src
+
+* Hydra
+
+This is a package for GNU Emacs that can be used to tie related commands into a family of short bindings with a common prefix - a Hydra.
+
+#+begin_src emacs-lisp
+
+(use-package hydra)
+
+(defhydra hydra-text-scale (:timeout 4)
+  "scale text"
+  ("j" text-scale-increase "in")
+  ("k" text-scale-decrease "out")
+  ("f" nil "finished" :exit t))
+
+#+end_src
+
+* Projectile
+
+Projectile is a project interaction library for Emacs. Its goal is to provide a nice set of features operating on a project level without introducing external dependencies (when feasible). For instance - finding project files has a portable implementation written in pure Emacs Lisp without the use of GNU find (but for performance sake an indexing mechanism backed by external commands exists as well).
+
+#+begin_src emacs-lisp
+
+(use-package projectile
+  :diminish projectile-mode
+  :config (projectile-mode)
+  :custom ((projectile-completion-system 'ivy))
+  :bind-keymap
+  ("C-c p" . projectile-command-map)
+  :init
+  (when (file-directory-p "~/Projects/")
+    (setq projectile-project-search-path '("~/Projects/")))
+  (setq projectile-switch-project-action #'projectile-dired))
+
+#+end_src
+
+** Projectile-counsel
+
+Setting counsel to works whit the projectile, improving the ui of the package
+
+#+begin_src emacs-lisp
+
+(use-package counsel-projectile
+  :config (counsel-projectile-mode))
+#+end_src
+
+* Magit
+
+Magit is a complete text-based user interface to Git. It fills the glaring gap between the Git command-line interface and various GUIs, letting you perform trivial as well as elaborate version control tasks with just a couple of mnemonic key presses.
+
+#+begin_src emacs-lisp
+
+(use-package magit
+  :commands (magit-status magit-get-current-branch)
+  :custom
+  (magit-display-buffer-function #'magit-display-buffer-same-window-except-diff-v1))
+
+#+end_src
+
+* Org and Forge
+
+Make sure Org and Forge is working on emacs:
+
+#+begin_src emacs-lisp
+
+(use-package forge)
+
+(use-package org)
+
+#+end_src
+
+* Dashboard
+
+An extensible emacs startup screen showing you what’s most important.
+
+#+begin_src emacs-lisp
+
+(use-package dashboard
+  :ensure t
+  :config
+  (dashboard-setup-startup-hook))
+
+(setq initial-buffer-choice (lambda () (get-buffer "*dashboard*")))
+
+;; Configuration dashboard
+(setq dashboard-banner-logo-title "Welcome to Emacs")
+;; Set the banner
+(setq dashboard-startup-banner 'logo)
+
+;; content is not centered by default. To center, set
+(setq dashboard-center-content t)
+
+
+(setq dashboard-show-shortcuts nil)
+
+(setq dashboard-items '((recents  . 5)
+                        (bookmarks . 5)
+                        (projects . 5)
+                        (agenda . 5)
+                        (registers . 5)))
+
+(defun dashboard-insert-custom (list-size)
+  (insert "Custom text"))
+(add-to-list 'dashboard-item-generators  '(custom . dashboard-insert-custom))
+(add-to-list 'dashboard-items '(custom) t)
+
+(setq dashboard-item-names '(("Recent Files:" . "Recently opened files:")
+                             ("Agenda for today:" . "Today's agenda:")
+                             ("Agenda for the coming week:" . "Agenda:")))
+
+(setq dashboard-set-heading-icons t)
+(setq dashboard-set-file-icons t)
+
+#+end_src
+
+* Vterm
+
+Vterm is a console emulator insde emacs, I se this package on this way:
+
+#+begin_src emacs-lisp
+
+(use-package vterm
+  :load-path "~/emacs-libvterm/")
+#+end_src
+
+* End (for now)
+
+This is the end of my configuration... You can add this configuration and test it.
