@@ -214,6 +214,27 @@
 (use-package vterm
   :load-path "~/emacs-libvterm/")
 
+(use-package org-roam
+  :ensure t)
+
+(use-package org-roam
+  :ensure t
+  :custom
+  (org-roam-directory (file-truename "~/Projects/notes/"))
+  :bind (("C-c n l" . org-roam-buffer-toggle)
+         ("C-c n f" . org-roam-node-find)
+         ("C-c n g" . org-roam-graph)
+         ("C-c n i" . org-roam-node-insert)
+         ("C-c n c" . org-roam-capture)
+         ;; Dailies
+         ("C-c n j" . org-roam-dailies-capture-today))
+  :config
+  ;; If you're using a vertical completion framework, you might want a more informative completion interface
+  (setq org-roam-node-display-template (concat "${title:*} " (propertize "${tags:10}" 'face 'org-tag)))
+  (org-roam-db-autosync-mode)
+  ;; If using org-roam-protocol
+  (require 'org-roam-protocol))
+
 (electric-pair-mode 1)
 
 (custom-set-variables
@@ -224,7 +245,7 @@
  '(custom-safe-themes
    '("2f8eadc12bf60b581674a41ddc319a40ed373dd4a7c577933acaff15d2bf7cc6" "60ada0ff6b91687f1a04cc17ad04119e59a7542644c7c59fc135909499400ab8" "b99e334a4019a2caa71e1d6445fc346c6f074a05fcbb989800ecbe54474ae1b0" "631c52620e2953e744f2b56d102eae503017047fb43d65ce028e88ef5846ea3b" "aec7b55f2a13307a55517fdf08438863d694550565dee23181d2ebd973ebd6b8" "636b135e4b7c86ac41375da39ade929e2bd6439de8901f53f88fde7dd5ac3561" "bddf21b7face8adffc42c32a8223c3cc83b5c1bbd4ce49a5743ce528ca4da2b6" default))
  '(package-selected-packages
-   '(rust-mode tree-sitter-langs tree-sitter gruber-darker-theme yasnippet which-key vterm use-package rainbow-delimiters ivy-rich helm-xref helm-lsp general forge flycheck evil-collection doom-themes doom-modeline dashboard dap-mode counsel-projectile company command-log-mode all-the-icons)))
+   '(org-roam rust-mode tree-sitter-langs tree-sitter gruber-darker-theme yasnippet which-key vterm use-package rainbow-delimiters ivy-rich helm-xref helm-lsp general forge flycheck evil-collection doom-themes doom-modeline dashboard dap-mode counsel-projectile company command-log-mode all-the-icons)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
