@@ -22,14 +22,16 @@ font pango:DejaVu Sans Mono 8
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
-#font pango:DejaVu Sans Mono 10
+font pango:Iosevka 9
 
 # The combination of xss-lock, nm-applet and pactl is a popular choice, so
 # they are included here as an example. Modify as you see fit.
-
 # xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+
+## Background yeah
+exec --no-startup-id feh --bg-scale ~/images/backgrounds/archie.png
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -51,8 +53,8 @@ bindsym $mod+Return  exec --no-startup-id alacritty
 # kill focused window
 bindsym $mod+Shift+q kill
 
+bindsym $mod+d exec --no-startup-id dmenu_run
 # start dmenu (a program launcher)
-bindsym $mod+d exec --no-startup-id rofi -show drun -show-icons -icon-theme Dracula
 # A more modern dmenu replacement is rofi:
 # bindcode $mod+40 exec "rofi -modi drun,run -show drun"
 # There also is i3-dmenu-desktop which only displays applications shipping a
