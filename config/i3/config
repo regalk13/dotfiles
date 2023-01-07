@@ -31,7 +31,7 @@ font pango:Iosevka 9
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 ## Background yeah
-exec --no-startup-id feh --bg-scale ~/images/backgrounds/archie.png
+exec --no-startup-id feh --bg-scale ~/Pictures/backgrounds/wal.jpg
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -176,7 +176,7 @@ bindsym $mod+r mode "resize"
 
     # Window color settings
     # class                 border  backgr. text    indicator
-    client.focused          #e85d68 #e85d68 #ffffff #030123
+    client.focused          #f0f0f0 #e7e7e7 #ffffff #030123
     client.unfocused        #2e3440 #2e3440 #888888 #2e3440
     client.focused_inactive #2e3440 #2e3440 #888888 #2e3440
     client.placeholder      #2e3440 #2e3440 #888888 #2e3440
@@ -186,7 +186,7 @@ bindsym $mod+r mode "resize"
 
 
 #Adjusting Border width for i3
-for_window [class="^.*"] border pixel 2.2
+for_window [class="^.*"] border pixel 1.5
 
 #Picom
 # exec_always --no-startup-id picom -f 
