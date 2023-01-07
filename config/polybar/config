@@ -20,6 +20,7 @@
 #background = #fa1e2137
 #added falcon bg color
 background = #1E222A
+background-2 = #303745
 foreground = #e3eaf3
 primary = #02c084
 secondary = #65a2d9
@@ -69,13 +70,13 @@ tray-radius = 3
 enable-ipc = true
 
 
-font-0 = Hack Nerd Font:bold:pixelsize=11:antialias=true;2.5
-font-1 = Hack Nerd Font:style=Regular:pixelsize=17:antialias=true;3
-font-2 = Hack Nerd Font:style=bold:pixelsize=11:antialias=true;3
-font-3 = Hack Nerd Font:style=Regular:pixelsize=10:antialias=true;3
+font-0 = Iosevka Nerd Font:bold:pixelsize=11:antialias=true;2.5
+font-1 = Iosevka Nerd Font:style=Regular:pixelsize=17:antialias=true;3
+font-2 = Iosevka Nerd Font:style=bold:pixelsize=11:antialias=true;3
+font-3 = Iosevka Nerd Font:style=Regular:pixelsize=10:antialias=true;3
+font-4 = Iosevka Nerd Font:style=Regular:pixelsize=16.5:antialias=true;3
 
-
-modules-left = i3 
+modules-left = dmenu i3 
 modules-right = arch-updates network  audio date powermenu
 
 cursor-click = pointer
@@ -94,6 +95,14 @@ mount-0 = /
 label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground}
+
+[module/dmenu]
+type=custom/text
+content=" ﬦ"
+click-left= exec dmenu_run
+content-foreground = ${colors.fourth}
+content-alignment = left
+content-font = 5
 
 
 [module/i3]
