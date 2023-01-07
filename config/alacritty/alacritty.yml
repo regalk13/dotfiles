@@ -1,41 +1,29 @@
-window:
-  padding:
-    x: 2
-    y: 8
-
 colors:
-  # Default colors
   primary:
-    background: "#1e222a"
-    foreground: "0xb4b4b9"
+    background: '0x0f0f0f'
+    foreground: '0xf0f0f0'
 
-  # Colors the cursor will use if `custom_cursor_colors` is true
-  cursor:
-    text: "0x020221"
-    cursor: "0xffe8c0"
-
-  # Normal colors
   normal:
-    black: "0x000004"
-    red: "0xff3600"
-    green: "0x718e3f"
-    yellow: "0xffc552"
-    blue: "0x635196"
-    magenta: "0xff761a"
-    cyan: "0x34bfa4"
-    white: "0xb4b4b9"
-    onedark: "#2B2C34"
+    black:   '0x262626'
+    red:     '0xac8a8c'
+    green:   '0x8aac8b'
+    yellow:  '0xaca98a'
+    blue:    '0x8f8aac'
+    magenta: '0xac8aac'
+    cyan:    '0x8aabac'
+    white:   '0xe7e7e7'
+    orange:  '0xc6a679' 
 
-  # Bright colors
   bright:
-    black: "0x020221"
-    red: "0xff8e78"
-    green: "0xb1bf75"
-    yellow: "0xffd392"
-    blue: "0x99a4bc"
-    magenta: "0xffb07b"
-    cyan: "0x8bccbf"
-    white: "0xf8f8ff"
+    black:   '0x4c4c4c'
+    red:     '0xc49ea0'
+    green:   '0x9ec49f'
+    yellow:  '0xc4c19e'
+    blue:    '0xa39ec4'
+    magenta: '0xc49ec4'
+    cyan:    '0x9ec3c4'
+    white:   '0xf5f5f5'
+    orange:  '0xceb188'
 font:
   normal:
     family: Iosevka Nerd Font
@@ -54,3 +42,8 @@ font:
     style: Extra Bold Italic
 
   size: 8
+window:
+  padding:
+    x: 8
+    y: 8
+  opacity: 0.9
