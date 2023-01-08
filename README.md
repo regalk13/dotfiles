@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="" alt="Logo" width="300" height="250">
+  <img src="https://github.com/regalk13/dotfiles/blob/main/assets/logo.png" alt="Logo" width="250" height="250">
   
   ### .dotfiles
 </div>
@@ -9,5 +9,5 @@
 
 - [ ] Implement the same colorscheme to all applications
 - [ ] Wallpaper lists
-- [ ] Make an logo
+- [x] Make an logo
 - [ ] Improve readme
