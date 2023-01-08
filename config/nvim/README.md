@@ -1,6 +1,7 @@
 <div align="center">
-  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Neovim-mark.svg" alt="Logo" width="140" height="150">
-  <h3 align="center">The Neovim rc</h3>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/Neovim-mark.svg" alt="Logo" width="140" height="130">
+  
+  ### The Neovim [rc](https://github.com/regalk13/vimrc)
 </div>
 
 ## About
