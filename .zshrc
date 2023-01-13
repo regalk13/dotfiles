@@ -118,3 +118,4 @@ alias vim="nvim"
 alias work="./timer -de 50:00 && notify-send 'PomodoroTimer' 'Your <b>work</b> time is up, take a break'"
 alias break="./timer -de 10:00 && notify-send 'PomodoroTimer' 'Your <b>break</b> time is up, get back to work'"
 
+if [ "$TMUX" = "" ]; then tmux; fi
