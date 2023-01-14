@@ -11,7 +11,7 @@
 
 (setq package-archives '(("melpa" . "https://melpa.org/packages/")
                           ("org" . "https://orgmode.org/elpa/")
-			            ("elpa" . "https://elpa.gnu.org/packages")))
+			  ("elpa" . "https://elpa.gnu.org/packages")))
 
 (add-to-list 'package-archives
     (cons "gnu-devel" "https://elpa.gnu.org/devel/")
@@ -28,7 +28,7 @@
       (package-install 'use-package))      
 (setq use-package-always-ensure t)
 
-;; Save backups
+;; Save backupsq
 (setq backup-directory-alist `(("." . "~/.saves")))
 (setq backup-by-copying t)
 
@@ -36,6 +36,33 @@
   kept-new-versions 6
   kept-old-versions 2
   version-control t)
+
+;; Using garbage magic hack.
+ (use-package gcmh
+   :config
+   (gcmh-mode 1))
+;; Setting garbage collection threshold
+(setq gc-cons-threshold 402653184
+      gc-cons-percentage 0.6)
+
+;; Profile emacs startup
+(add-hook 'emacs-startup-hook
+          (lambda ()
+            (message "*** Emacs loaded in %s with %d garbage collections."
+                     (format "%.2f seconds"
+                             (float-time
+                              (time-subtract after-init-time before-init-time)))
+                     gcs-done)))
+
+;; Silence compiler warnings as they can be pretty disruptive (setq comp-async-report-warnings-errors nil)
+;; Silence compiler warnings as they can be pretty disruptive
+(if (boundp 'comp-deferred-compilation)
+    (setq comp-deferred-compilation nil)
+    (setq native-comp-deferred-compilation nil))
+;; In noninteractive sessions, prioritize non-byte-compiled source files to
+;; prevent the use of stale byte-code. Otherwise, it saves us a little IO time
+;; to skip the mtime checks on every *.elc file.
+(setq load-prefer-newer noninteractive)
 
 (set-face-attribute `default nil :font "Iosevka Nerd Font" :height 120)
 (use-package all-the-icons)
@@ -250,7 +277,7 @@
  '(custom-safe-themes
    '("2f8eadc12bf60b581674a41ddc319a40ed373dd4a7c577933acaff15d2bf7cc6" "60ada0ff6b91687f1a04cc17ad04119e59a7542644c7c59fc135909499400ab8" "b99e334a4019a2caa71e1d6445fc346c6f074a05fcbb989800ecbe54474ae1b0" "631c52620e2953e744f2b56d102eae503017047fb43d65ce028e88ef5846ea3b" "aec7b55f2a13307a55517fdf08438863d694550565dee23181d2ebd973ebd6b8" "636b135e4b7c86ac41375da39ade929e2bd6439de8901f53f88fde7dd5ac3561" "bddf21b7face8adffc42c32a8223c3cc83b5c1bbd4ce49a5743ce528ca4da2b6" default))
  '(package-selected-packages
-   '(websocket org-roam-ui org-roam rust-mode tree-sitter-langs tree-sitter gruber-darker-theme yasnippet which-key vterm use-package rainbow-delimiters ivy-rich helm-xref helm-lsp general forge flycheck evil-collection doom-themes doom-modeline dashboard dap-mode counsel-projectile company command-log-mode all-the-icons)))
+   '(gcmh websocket org-roam-ui org-roam rust-mode tree-sitter-langs tree-sitter gruber-darker-theme yasnippet which-key vterm use-package rainbow-delimiters ivy-rich helm-xref helm-lsp general forge flycheck evil-collection doom-themes doom-modeline dashboard dap-mode counsel-projectile company command-log-mode all-the-icons)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
