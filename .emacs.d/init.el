@@ -331,7 +331,7 @@
      (zig-mode . "zig-mode_icon")
      ("^slime-.*" . "lisp-mode_icon")
      ("^sly-.*$" . "lisp-mode_icon")))
- '(elcord-use-major-mode-as-main-icon nil)
+ '(elcord-use-major-mode-as-main-icon t)
  '(package-selected-packages
    '(elcord gcmh websocket org-roam-ui org-roam rust-mode tree-sitter-langs tree-sitter gruber-darker-theme yasnippet which-key vterm use-package rainbow-delimiters ivy-rich helm-xref helm-lsp general forge flycheck evil-collection doom-themes doom-modeline dashboard dap-mode counsel-projectile company command-log-mode all-the-icons)))
 (custom-set-faces
