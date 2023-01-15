@@ -31,7 +31,7 @@ font pango:Iosevka 9
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
 ## Background yeah
-exec --no-startup-id feh --bg-scale ~/Pictures/backgrounds/wal.jpg
+exec --no-startup-id feh --bg-scale ~/Pictures/backgrounds/evengelion.jpg
 
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
@@ -49,6 +49,7 @@ floating_modifier $mod
 
 # start a terminal
 bindsym $mod+Return  exec --no-startup-id alacritty
+
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -145,6 +146,8 @@ bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
+bindsym $mod+m  exec "emacsclient -c -a 'emacs'"
+
 # resize window (you can also use the mouse for that)
 mode "resize" {
         # These bindings trigger as soon as you enter the resize mode
@@ -199,6 +202,7 @@ gaps top 40
 
 #POlybar
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
 
 #betterlockscreen
 bindsym $mod + l exec  --no-startup-id betterlockscreen  -l dim --off 30 --time-format %I:%M
