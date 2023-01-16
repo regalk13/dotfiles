@@ -281,6 +281,7 @@
  '(elcord-client-id "1063980267234140180")
  '(elcord-icon-base
    "https://raw.githubusercontent.com/regalk13/dotfiles/main/.emacs.d/icons/")
+ '(elcord-mode t nil (elcord))
  '(elcord-mode-icon-alist
    '((agda-mode . "agda-mode_icon")
      (assembly-mode . "assembly-mode_icon")
@@ -330,7 +331,8 @@
      (typescript-mode . "typescript-mode_icon")
      (zig-mode . "zig-mode_icon")
      ("^slime-.*" . "lisp-mode_icon")
-     ("^sly-.*$" . "lisp-mode_icon")))
+     ("^sly-.*$" . "lisp-mode_icon")
+     (eww-mode . "eww-mode_icon")))
  '(elcord-use-major-mode-as-main-icon t)
  '(package-selected-packages
    '(elcord gcmh websocket org-roam-ui org-roam rust-mode tree-sitter-langs tree-sitter gruber-darker-theme yasnippet which-key vterm use-package rainbow-delimiters ivy-rich helm-xref helm-lsp general forge flycheck evil-collection doom-themes doom-modeline dashboard dap-mode counsel-projectile company command-log-mode all-the-icons)))
