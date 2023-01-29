@@ -1,43 +1,58 @@
 -- This file can be loaded by calling `lua require('plugins')` from your init.vim
 
 -- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
 
-return require('packer').startup(function(use)
+vim.opt.rtp:prepend(lazypath)
+
+require('lazy').setup({
   -- Packer can manage itself
-  use 'wbthomason/packer.nvim'
+  'wbthomason/packer.nvim',
   -- neogit
-  use("TimUntersberger/neogit")
-  
+  'TimUntersberger/neogit',
+
   -- colorscheme
-  use 'folke/tokyonight.nvim'
-  use("sainnhe/everforest")
-  use('shaunsingh/oxocarbon.nvim', { run = './install.sh' })
-  use('catppuccin/nvim', { as="catppuccin" })
+  'folke/tokyonight.nvim',
+  'sainnhe/everforest',
+  
+  {
+      'catppuccin/nvim', 
+      name='catppuccin'
+  },
+  
   -- Tl
-  use("nvim-telescope/telescope.nvim")
+  'nvim-telescope/telescope.nvim',
   
   -- Editor
-  use("hrsh7th/cmp-buffer")
-  use("onsails/lspkind-nvim") 
-  use("hrsh7th/cmp-nvim-lsp")
-  use("hrsh7th/cmp-buffer")
-  use("hrsh7th/nvim-cmp")
-  use("L3MON4D3/LuaSnip")
-  use("saadparwaiz1/cmp_luasnip")
-  use("nvim-lua/lsp_extensions.nvim")
-  use("glepnir/lspsaga.nvim")
-  use("simrat39/symbols-outline.nvim")
-  use 'neovim/nvim-lspconfig'
-  use("nvim-treesitter/nvim-treesitter", {
-      run = ":TSUpdate"
-  })
-  use("tzachar/cmp-tabnine", { run = "./install.sh" })
-  use("nvim-treesitter/playground")
-  use("romgrk/nvim-treesitter-context")
+  'hrsh7th/cmp-buffer',
+  'onsails/lspkind-nvim', 
+  'hrsh7th/cmp-nvim-lsp',
+  'hrsh7th/cmp-buffer',
+  'hrsh7th/nvim-cmp',
+  'L3MON4D3/LuaSnip',
+  'saadparwaiz1/cmp_luasnip',
+  'nvim-lua/lsp_extensions.nvim',
+  'glepnir/lspsaga.nvim',
+  'simrat39/symbols-outline.nvim',
+  'neovim/nvim-lspconfig',
+  {
+      "nvim-treesitter/nvim-treesitter", 
+      build = ":TSUpdate"
+  },
+  "nvim-treesitter/playground",
+  "romgrk/nvim-treesitter-context",
 
-  use("mfussenegger/nvim-dap")
-  use("rcarriga/nvim-dap-ui")
-  use("theHamsta/nvim-dap-virtual-text") 
-  use("ThePrimeagen/vim-be-good")
-end)
+  "mfussenegger/nvim-dap",
+  "rcarriga/nvim-dap-ui",
+  "theHamsta/nvim-dap-virtual-text", 
+})

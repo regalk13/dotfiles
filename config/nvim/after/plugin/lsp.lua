@@ -5,12 +5,9 @@ local cmp = require("cmp")
 local source_mapping = {
 	buffer = "[Buffer]",
 	nvim_lsp = "[LSP]",
-	cmp_tabnine = "[TN]",
 	path = "[Path]",
 }
 local lspkind = require("lspkind")
-
-
 cmp.setup({
 	snippet = {
 		expand = function(args)
@@ -47,21 +44,10 @@ cmp.setup({
 	},
 
 	sources = {
-        { name = "cmp_tabnine" },
-
 		{ name = "nvim_lsp" },
 		{ name = "buffer" },
 
 	},
-})
-
-local tabnine = require("cmp_tabnine.config")
-tabnine:setup({
-	max_lines = 1000,
-	max_num_results = 20,
-	sort = true,
-	run_on_every_keystroke = true,
-	snippet_placeholder = "..",
 })
 
 local function config(_config)
