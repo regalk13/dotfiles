@@ -24,12 +24,12 @@ require('lazy').setup({
   -- colorscheme
   'folke/tokyonight.nvim',
   'sainnhe/everforest',
-  
-  {
+  'tiagovla/tokyodark.nvim',
+ {
       'catppuccin/nvim', 
       name='catppuccin'
   },
-  
+ 
   -- Tl
   'nvim-telescope/telescope.nvim',
   
