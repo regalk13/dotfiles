@@ -55,4 +55,9 @@ require('lazy').setup({
   "mfussenegger/nvim-dap",
   "rcarriga/nvim-dap-ui",
   "theHamsta/nvim-dap-virtual-text", 
+  "iamcco/markdown-preview.nvim",
+  {
+      "nvim-lualine/lualine.nvim",
+      dependencies = { 'kyazdani42/nvim-web-devicons', lazy = true },
+  },
 })
