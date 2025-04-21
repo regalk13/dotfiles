@@ -149,6 +149,8 @@
     neofetch
     xfce.thunar # xfce4's file manager
     nnn # terminal file manager
+    just
+    nh
   ];
 
   # Enable sound with pipewire.

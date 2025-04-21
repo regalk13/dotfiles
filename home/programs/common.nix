@@ -84,14 +84,13 @@
     mutableKeys = true;
   };
 
-services.gpg-agent = {
-  enable = true;
-  defaultCacheTtl = 1800;
-  maxCacheTtl = 7200;
-  enableSshSupport = true;
-  pinentryPackage = pkgs.pinentry-curses; # o gtk2, qt, dependiendo de tu entorno
-};
-
+  services.gpg-agent = {
+    enable = true;
+    defaultCacheTtl = 1800;
+    maxCacheTtl = 7200;
+    enableSshSupport = true;
+    pinentryPackage = pkgs.pinentry-curses; # o gtk2, qt, dependiendo de tu entorno
+  };
 
   services = {
     syncthing.enable = true;
