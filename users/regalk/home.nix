@@ -13,6 +13,7 @@
     #    ../../home/i3
     #    ../../home/cosmic
     ../../home/programs
+    ../../home/vesktop
     ../../home/rofi
     ../../home/shell
   ];

@@ -46,6 +46,11 @@
 
     thunderbird
     postman
+    charm-freeze
+
+
+    # sioyek
+    sioyek
   ];
   programs = {
     tmux = {

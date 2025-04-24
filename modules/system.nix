@@ -151,6 +151,7 @@
     nnn # terminal file manager
     just
     nh
+    keepassxc
   ];
 
   # Enable sound with pipewire.
