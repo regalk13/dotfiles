@@ -1,6 +1,6 @@
 { config, ... }:
 let
-  browser = [ "zen-twilight.desktop" ];
+  browser = [ "librewolf" ];
 
   # XDG MIME types
   associations = {

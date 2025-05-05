@@ -11,7 +11,8 @@
     unzip
     p7zip
 
-    inputs.zen-browser.packages."${system}".twilight
+    vscodium
+   #  inputs.zen-browser.packages."${system}".twilight
     inputs.neovim-nightly-overlay.packages.${pkgs.system}.default
     # utils
     ripgrep
