@@ -41,7 +41,6 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         ./modules/formatter.nix
-        ./modules/emacs
       ];
       flake = {
         nixosConfigurations = {
@@ -58,6 +57,7 @@
                 ./hosts/monarch
                 ./users/${username}/nixos.nix
                 lix.nixosModules.default
+                ./modules/emacs/module.nix
                 home-manager.nixosModules.home-manager
                 {
                   home-manager.useGlobalPkgs = true;

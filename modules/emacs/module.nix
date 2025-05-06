@@ -1,7 +1,7 @@
 { lib, pkgs, config, inputs, ... }:
 
 let
-  emacsDrv = pkgs.callPackage ./package.nix {
+  emacsDrv = pkgs.callPackage ./emacs.nix {
     colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
   };
 in {
@@ -11,11 +11,11 @@ in {
 
     environment.systemPackages = [ emacsDrv ];
 
-    home.packages = [ emacsDrv ];
+#    home.packages = [ emacsDrv ];
 
-    programs.emacs = lib.mkIf (config ? programs.emacs) {
-      package = emacsDrv;
-    };
+#    programs.emacs = lib.mkIf (config ? programs.emacs) {
+ #     package = emacsDrv;
+  #  };
   };
 }
 
