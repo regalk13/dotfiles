@@ -26,7 +26,7 @@ let
       # UI
       all-the-icons
       doom-modeline
-     (callPackage ./theme.nix { inherit colorScheme; })
+      (callPackage ./theme.nix { inherit colorScheme; })
 
       # Keybinds
       evil
