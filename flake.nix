@@ -28,6 +28,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-parts.url = "github:hercules-ci/flake-parts";
+
+    nix-colors.url = "github:Misterio77/nix-colors";
   };
 
   outputs =
@@ -47,7 +49,7 @@
           monarch =
             let
               username = "regalk";
-              specialArgs = { inherit username; };
+              specialArgs = { inherit username inputs; };
             in
             nixpkgs.lib.nixosSystem {
               inherit specialArgs;

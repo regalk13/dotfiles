@@ -80,7 +80,7 @@
     packages = with pkgs; [
       # icon fonts
       material-design-icons
-
+      dejavu_fonts
       # normal fonts
       noto-fonts
       noto-fonts-cjk-sans
