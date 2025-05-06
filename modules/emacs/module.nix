@@ -1,0 +1,21 @@
+{ lib, pkgs, config, inputs, ... }:
+
+let
+  emacsDrv = pkgs.callPackage ./package.nix {
+    colorScheme = inputs.nix-colors.colorSchemes.gruvbox-dark-medium;
+  };
+in {
+  options.regalk.emacs.enable = lib.mkEnableOption "Regalk’s custom Emacs";
+
+  config = lib.mkIf config.regalk.emacs.enable {
+
+    environment.systemPackages = [ emacsDrv ];
+
+    home.packages = [ emacsDrv ];
+
+    programs.emacs = lib.mkIf (config ? programs.emacs) {
+      package = emacsDrv;
+    };
+  };
+}
+

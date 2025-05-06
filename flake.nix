@@ -41,6 +41,7 @@
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         ./modules/formatter.nix
+        ./modules/emacs
       ];
       flake = {
         nixosConfigurations = {
