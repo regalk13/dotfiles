@@ -1,5 +1,5 @@
 ;; === Fonts ===
-(set-face-attribute 'default nil :font "JetBrainsMono Nerd Font" :height 100)
+(set-face-attribute 'default nil :font "JetBrainsMono Nerd Font" :height 160)
 (set-face-attribute 'fixed-pitch nil :font "JetBrainsMono Nerd Font" :height 100)
 (set-face-attribute 'variable-pitch nil :font "DejaVu Sans" :height 120 :weight 'regular)
 

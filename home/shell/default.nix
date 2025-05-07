@@ -33,4 +33,8 @@ in
   home.shellAliases = {
     k = "kubectl";
   };
+
+  programs.bash = {
+    enable = true;
+  };
 }
