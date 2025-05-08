@@ -16,20 +16,12 @@
     inputs.neovim-nightly-overlay.packages.${pkgs.system}.default
     # utils
     ripgrep
-    yq-go # https://github.com/mikefarah/yq
     htop
 
     # misc
     libnotify
-    wineWowPackages.wayland
     xdg-utils
     graphviz
-
-    # productivity
-    obsidian
-
-    # IDE
-    insomnia
 
     # cloud native
     docker-compose
