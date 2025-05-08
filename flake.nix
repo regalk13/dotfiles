@@ -11,9 +11,6 @@
 
       inputs = {
         nixpkgs.follows = "nixpkgs";
-        pre-commit-hooks.follows = "";
-        nix2container.follows = "";
-        flake-compat.follows = "";
       };
     };
 
@@ -27,6 +24,7 @@
       repo = "treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
     flake-parts.url = "github:hercules-ci/flake-parts";
 
     nix-colors.url = "github:Misterio77/nix-colors";
@@ -37,46 +35,13 @@
   outputs =
     {
       flake-parts,
-      nixpkgs,
-      home-manager,
-      lix,
       ...
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
         ./modules/formatter.nix
+        ./hosts
       ];
-      flake = {
-        nixosConfigurations = {
-          monarch =
-            let
-              username = "regalk";
-              specialArgs = { inherit username inputs; };
-            in
-            nixpkgs.lib.nixosSystem {
-              inherit specialArgs;
-              system = "x86_64-linux";
-
-              modules = [
-                ./hosts/monarch
-                ./users/${username}/nixos.nix
-                lix.nixosModules.default
-                ./modules/emacs/module.nix
-                home-manager.nixosModules.home-manager
-                {
-                  home-manager.useGlobalPkgs = true;
-                  home-manager.useUserPackages = true;
-                  home-manager.extraSpecialArgs = {
-                    inherit inputs;
-                    system = "x86_64-linux";
-                    username = "regalk";
-                  };
-                  home-manager.users.${username} = import ./users/${username}/home.nix;
-                }
-              ];
-            };
-        };
-      };
       systems = [
         "x86_64-linux"
       ];

@@ -50,6 +50,9 @@ let
       typescript-mode
       nix-mode
       markdown-mode
+      # rust!
+      #rust-mode
+      #cargo
 
       # Note-taking
       org

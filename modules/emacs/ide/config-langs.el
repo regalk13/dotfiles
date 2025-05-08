@@ -24,4 +24,33 @@
     '(markdown-header-face-2 ((t (:inherit markdown-header-face :height 1.4))))
     '(markdown-header-face-3 ((t (:inherit markdown-header-face :height 1.2))))))
 
+(use-package rust-mode
+  :mode "\\.rs\\'"
+  :hook ((rust-mode . lsp-deferred)
+         (rust-mode . rust-enable-format-on-save))
+  :config
+  (setq rust-format-on-save t))
+
+
+(defun rust-enable-format-on-save ()
+  "Enable formatting on save for rust-mode."
+  (add-hook 'before-save-hook #'lsp-format-buffer nil t))
+
+;; Optionally install lsp-mode, lsp-ui and rust-analyzer if not done yet:
+(use-package lsp-mode
+  :commands lsp
+  :config
+  (setq lsp-rust-server 'rust-analyzer))
+
+(use-package lsp-ui
+  :commands lsp-ui-mode)
+
+;; Optional: `cargo` integration for project commands
+(use-package cargo
+  :hook (rust-mode . cargo-minor-mode))
+
+;; Optional: better syntax highlighting and expansion
+(use-package rustic
+  :defer t)
+
 (provide 'config-langs)

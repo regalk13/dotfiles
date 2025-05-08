@@ -32,7 +32,7 @@
   environment.systemPackages = with pkgs; [
     waybar
   ];
-  
+
   programs.thunar.plugins = with pkgs.xfce; [
     thunar-archive-plugin
     thunar-volman

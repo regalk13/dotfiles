@@ -52,8 +52,9 @@
     # sioyek
     sioyek
 
-
     rofi
+
+    helix
   ];
   programs = {
     tmux = {
