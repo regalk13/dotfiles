@@ -39,7 +39,7 @@
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
       imports = [
-        ./modules/formatter.nix
+        ./formatter.nix
         ./hosts
       ];
       systems = [

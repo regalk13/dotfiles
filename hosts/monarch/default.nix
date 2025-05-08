@@ -6,14 +6,33 @@
 
 {
   imports = [
-    ../../modules/system.nix
-    # ../../modules/i3.nix
-    # ../../modules/cosmic.nix
-    ../../modules/hyprland.nix
+
+    ../../modules/graphical/hyprland.nix
+
+    # CLI
+    ../../modules/cli/tools.nix
+
+    # Core
+    ../../modules/core
+
+    # Desktop
+    ../../modules/desktop/apps.nix
+    ../../modules/desktop/fonts.nix
+
+    # Networking
+    ../../modules/networking/firewall.nix
+    ../../modules/networking/ssh.nix
+
+    # Hardware
+    ../../modules/hardware/audio.nix
+    ../../modules/hardware/sensors.nix
 
     # Include the results of the hardware scan.
     ./hardware.nix
   ];
+
+  desktop.apps.enable   = true;
+  cli.tools.enable      = true;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

@@ -18,7 +18,7 @@ pkgs.lib.nixosSystem {
     "${self}/hosts/${name}"
     "${self}/users/${username}/nixos.nix"
     inputs.lix.nixosModules.default
-    "${self}/modules/emacs/module.nix"
+    "${self}/modules/editors/emacs/module.nix"
     hm.nixosModules.home-manager
     {
       home-manager.useGlobalPkgs = true;

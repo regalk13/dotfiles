@@ -7,8 +7,7 @@
 let
   mkLink = config.lib.file.mkOutOfStoreSymlink;
 
-  flakeDir = "${config.home.homeDirectory}/projects/nix-config2/flake-regalk/home/vesktop";
-  settingsFile = mkLink "${flakeDir}/settings.json";
+  settingsFile = mkLink "./settings.json";
   common = ".config/vesktop/settings";
 in
 {

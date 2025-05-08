@@ -1,6 +1,5 @@
 {
   pkgs,
-  lib,
   username,
   ...
 }:
@@ -36,32 +35,9 @@
   };
 
   # do garbage collection weekly to keep disk usage low
-  nix.gc = {
-    automatic = lib.mkDefault true;
-    dates = lib.mkDefault "weekly";
-    options = lib.mkDefault "--delete-older-than 7d";
-  };
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # Set your time zone.
-  time.timeZone = "America/Bogota";
-
-  # Select internationalisation properties.
-  i18n.defaultLocale = "en_US.UTF-8";
-
-  i18n.extraLocaleSettings = {
-    LC_ADDRESS = "es_CO.UTF-8";
-    LC_IDENTIFICATION = "es_CO.UTF-8";
-    LC_MEASUREMENT = "es_CO.UTF-8";
-    LC_MONETARY = "es_CO.UTF-8";
-    LC_NAME = "es_CO.UTF-8";
-    LC_NUMERIC = "es_CO.UTF-8";
-    LC_PAPER = "es_CO.UTF-8";
-    LC_TELEPHONE = "es_CO.UTF-8";
-    LC_TIME = "es_CO.UTF-8";
-  };
 
   # Enable CUPS to print documents.
   # services.printing.enable = true;
@@ -103,8 +79,6 @@
       emoji = [ "Noto Color Emoji" ];
     };
   };
-
-  programs.dconf.enable = true;
 
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
