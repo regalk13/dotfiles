@@ -51,6 +51,9 @@
 
     # sioyek
     sioyek
+
+
+    rofi
   ];
   programs = {
     tmux = {

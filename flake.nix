@@ -30,6 +30,8 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
 
     nix-colors.url = "github:Misterio77/nix-colors";
+
+    hyprland.url = "github:hyprwm/Hyprland";
   };
 
   outputs =

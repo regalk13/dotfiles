@@ -1,6 +1,5 @@
 { pkgs, ... }:
 {
-  # i3 related options
   services.displayManager.defaultSession = "cosmic";
   services.desktopManager.cosmic.enable = true;
 

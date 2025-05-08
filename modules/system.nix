@@ -30,17 +30,13 @@
     ];
 
     substituters = [
-      # cache mirror located in China
-      # status: https://mirror.sjtu.edu.cn/
-      # "https://mirror.sjtu.edu.cn/nix-channels/store"
-      # status: https://mirrors.ustc.edu.cn/status/
-      # "https://mirrors.ustc.edu.cn/nix-channels/store"
-
       "https://cache.nixos.org"
+      "https://hyprland.cachix.org"
     ];
 
     trusted-public-keys = [
       "cache.nixos.org-1:6NCHdD59X431o0gWypbMrAURkbJ16ZPMQFGspcDShjY="
+      "hyprland.cachix.org-1:a7pgxzMz7+chwVL3/pzj6jIBMioiJM7ypFP8PwtkuGc="
     ];
     builders-use-substitutes = true;
   };
@@ -152,6 +148,8 @@
     just
     nh
     keepassxc
+    # onlyoffice
+    onlyoffice-desktopeditors
   ];
 
   # Enable sound with pipewire.
@@ -164,7 +162,7 @@
   services = {
     dbus.packages = [ pkgs.gcr ];
 
-    geoclue2.enable = true;
+    # geoclue2.enable = true;
 
     pipewire = {
       enable = true;
