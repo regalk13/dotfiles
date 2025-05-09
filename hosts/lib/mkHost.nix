@@ -25,6 +25,7 @@ pkgs.lib.nixosSystem {
       home-manager.useUserPackages = true;
       home-manager.extraSpecialArgs = { inherit inputs system username; };
       home-manager.users.${username} = import "${self}/users/${username}/home.nix";
+      home-manager.sharedModules = [ (self + /home/default.nix) ];
     }
   ];
 }

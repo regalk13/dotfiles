@@ -31,6 +31,10 @@
   services.xserver.displayManager.gdm.enable = true;
   environment.systemPackages = with pkgs; [
     waybar
+    grim
+    slurp
+    wl-clipboard
+    hyprpaper
   ];
 
   programs.thunar.plugins = with pkgs.xfce; [

@@ -31,8 +31,8 @@
     ./hardware.nix
   ];
 
-  desktop.apps.enable   = true;
-  cli.tools.enable      = true;
+  desktop.apps.enable = true;
+  cli.tools.enable = true;
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;

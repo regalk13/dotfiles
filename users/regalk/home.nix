@@ -10,6 +10,7 @@
     ../../home/vesktop
     ../../home/rofi
     ../../home/shell
+    ./graphical/hyprland
   ];
 
   programs.git = {
