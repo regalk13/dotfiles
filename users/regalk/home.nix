@@ -7,10 +7,10 @@
     #    ../../home/i3
     #    ../../home/cosmic
     ../../home/programs
-    ../../home/vesktop
     ../../home/rofi
     ../../home/shell
     ./graphical/hyprland
+    ./apps/vesktop
   ];
 
   programs.git = {
