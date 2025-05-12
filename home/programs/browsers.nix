@@ -4,18 +4,6 @@
   inputs,
   ...
 }:
-let
-  zenFlake = inputs.zen-browser.packages.${pkgs.system};
-
-  zenBrowser = zenFlake.default.override {
-    extraPolicies = {
-      DisableTelemetry       = true;
-      DisableFirefoxStudies  = true;
-      DisablePocket          = true;
-      DisableFirefoxAccounts = true;
-    };
-  };
-in
 {
   programs = {
     chromium = {
@@ -45,6 +33,6 @@ in
   };
 
   home.packages = [
-    zenBrowser  
+    inputs.zen-browser.packages.${pkgs.system}.default  
   ];
 }
