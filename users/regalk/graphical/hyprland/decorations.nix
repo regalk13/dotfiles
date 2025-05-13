@@ -1,6 +1,6 @@
 {
   wayland.windowManager.hyprland.settings.decoration = {
-    rounding = 0;
+    rounding = 5;
     rounding_power = 2;
 
     active_opacity = 1.0;
@@ -17,13 +17,12 @@
       passes = 2;
       size = 2;
 
-      brightness = 1;
+      brightness = 1.2;
       contrast = 1.3;
-      noise = 1.17e-2;
-      ignore_opacity = true;
+      # noise = 1.17e-2;
+      noise = 0.02; 
 
-      new_optimizations = true;
-      xray = true;
+      new_optimizations = true;    
     };
   };
 }
