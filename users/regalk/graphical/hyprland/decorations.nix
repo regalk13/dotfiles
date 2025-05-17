@@ -20,9 +20,9 @@
       brightness = 1.2;
       contrast = 1.3;
       # noise = 1.17e-2;
-      noise = 0.02; 
+      noise = 0.02;
 
-      new_optimizations = true;    
+      new_optimizations = true;
     };
   };
 }

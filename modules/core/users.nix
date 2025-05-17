@@ -1,4 +1,4 @@
-{ username, ... }:
+{ username, pkgs, ... }:
 
 {
   users.users.${username} = {
@@ -10,5 +10,7 @@
     ];
   };
 
+  programs.zsh.enable = true;
   nix.settings.trusted-users = [ username ];
+  users.defaultUserShell = pkgs.zsh;
 }
