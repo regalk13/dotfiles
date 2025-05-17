@@ -72,12 +72,7 @@ element-text {
     vertical-align:      0.5;
     margin:              0.5% 3% 0% 3%;
     background-color:    inherit;
-    text-color:          #fff;
-}
-
-element selected {
-    text-color:          #000;
-    border-radius:       6px;
+    text-color:          @white;
 }
 
 element selected normal, element selected active {
@@ -85,6 +80,6 @@ element selected normal, element selected active {
 }
 
 element-text selected normal, element-text selected active {
-    text-color: #000;
+    text-color: @black;
 }
     
