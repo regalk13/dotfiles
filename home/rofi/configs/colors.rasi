@@ -1,0 +1,63 @@
+* {
+    /***** [ Colors ] *****/
+
+    /* don't delete these colors */
+
+    white:      #ffffff; 
+    black:      #161616;
+    red:        #ff0000;
+
+    /***** [ Custom Colors ] *****/
+
+    color1:  #161616;
+    color2:  #ff7eb6;
+    color3:  #ff7eb6;
+    color4:  #2d2d2d;
+
+    /***** [ Elements ] *****/ 
+
+    background:           @color1;
+    background-alt:       @color4;
+    background-selected:  @color2;
+    background-active:    @color2; 
+    background-urgent:    @black; 
+    
+    foreground:           @white;
+    foreground-alt:       @white;
+    foreground-selected:  @color1;
+    foreground-active:    @color1; 
+    foreground-urgent:    @white;
+
+    background-color:     @color1;
+    text-color:           @color2;
+    border-color:         @black;
+    separator-color:      @white;
+    normal:               @white;
+    selected:             @color1;
+    active:               @white;
+    urgent:               @red;
+
+    /***** [ Aliases ] *****/
+
+    /* DO NOT TOUCH HERE */
+
+    bg: @background;
+    bg-alt: @background-alt;
+    bg-sel: @background-selected;
+    bg-act: @background-active; 
+    bg-urg: @background-urgent; 
+
+    fg: @foreground;
+    fg-alt: @foreground-alt;
+    fg-sel: @foreground-selected;
+    fg-act: @foreground-active; 
+    fg-urg: @foreground-urgent;
+
+    sel: @selected;
+    act: @active;
+    urg: @urgent;
+    text: @text-color;
+    txt: @text-color;
+    border: @border-color;
+    separator: @separator-color;
+}
