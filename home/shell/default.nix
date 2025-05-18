@@ -34,7 +34,6 @@ in
     k = "kubectl";
   };
 
-
   programs.zsh = {
     enable = true;
     enableCompletion = true;

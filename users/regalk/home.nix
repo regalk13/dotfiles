@@ -10,7 +10,7 @@
     ../../home/rofi
     ../../home/shell
     ./graphical/hyprland
-    ./apps/vesktop
+    #   ./apps/vesktop
   ];
 
   programs.git = {
