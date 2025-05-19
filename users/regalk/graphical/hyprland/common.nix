@@ -15,10 +15,6 @@
     touchpad.natural_scroll = false;
   };
 
-  wayland.windowManager.hyprland.settings.device = {
-    name = "epic-mouse-v1";
-    sensitivity = "-0.5";
-  };
   wayland.windowManager.hyprland.settings.gestures.workspace_swipe = false;
   wayland.windowManager.hyprland.settings.dwindle = {
     pseudotile = true;

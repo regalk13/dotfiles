@@ -5,5 +5,6 @@
     ./git.nix
     ./media.nix
     ./xdg.nix
+    ./gtk.nix
   ];
 }
