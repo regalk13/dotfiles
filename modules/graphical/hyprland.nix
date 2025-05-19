@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ inputs, pkgs, ... }: 
 {
   programs.hyprland = {
     enable = true;
@@ -19,13 +19,14 @@
     inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.xdg-desktop-portal-hyprland
   ];
 
-  # hardware.graphics = {
-  #    package = pkgs-unstable.mesa;
+  hardware.graphics = {
+  package = pkgs.mesa;
 
   # Steam support
-  #     enable32Bit = true;
-  #    package32 = pkgs-unstable.pkgsi686Linux.mesa;
-  #};
+    enable32Bit = true;
+    # driSupport32Bit = true;
+    package32 = pkgs.pkgsi686Linux.mesa;
+  };
 
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
