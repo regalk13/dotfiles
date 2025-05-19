@@ -8,7 +8,7 @@
   imports = [
 
     ../../modules/graphical/hyprland.nix
-    ../../modules/graphical/i3.nix
+    # ../../modules/graphical/i3.nix
     # ../../modules/browsers/zen-browser.nix
     # CLI
     ../../modules/cli/tools.nix
