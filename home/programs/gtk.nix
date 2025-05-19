@@ -9,8 +9,8 @@
     x11.enable = true;
 
     package = pkgs.adwaita-icon-theme;
-    name    = "Adwaita";
-    size    = 24;
+    name = "Adwaita";
+    size = 24;
   };
 
   gtk = {
@@ -20,8 +20,8 @@
       package = pkgs.solarc-gtk-theme;
     };
     cursorTheme = {
-      name    = config.home.pointerCursor.name;
-      package = config.home.pointerCursor.package;
+      inherit (config.home.pointerCursor) name;
+      inherit (config.home.pointerCursor) package;
     };
     gtk3.extraConfig = {
       "gtk-cursor-theme-name" = config.home.pointerCursor.name;
@@ -36,8 +36,11 @@
   };
 
   xdg.portal = {
-  config = {
-    hyprland.preferred = [ "hyprland" "gtk" ];
+    config = {
+      hyprland.preferred = [
+        "hyprland"
+        "gtk"
+      ];
+    };
   };
-};
 }
