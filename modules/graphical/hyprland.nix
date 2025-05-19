@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }: 
+{ inputs, pkgs, ... }:
 {
   programs.hyprland = {
     enable = true;
@@ -20,9 +20,9 @@
   ];
 
   hardware.graphics = {
-  package = pkgs.mesa;
+    package = pkgs.mesa;
 
-  # Steam support
+    # Steam support
     enable32Bit = true;
     # driSupport32Bit = true;
     package32 = pkgs.pkgsi686Linux.mesa;

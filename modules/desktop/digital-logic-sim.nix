@@ -1,22 +1,23 @@
-{ lib
-, stdenv
-, fetchzip
-, makeWrapper
+{
+  lib,
+  stdenv,
+  fetchzip,
+  makeWrapper,
 }:
 
 stdenv.mkDerivation rec {
-  pname   = "digital-logic-sim";
-  version = "0.1.4";          # adjust to the tag / build date you mirrored
+  pname = "digital-logic-sim";
+  version = "0.1.4"; # adjust to the tag / build date you mirrored
 
   src = fetchzip {
-    url    = "https://example.com/DigitalLogicSim_Linux.zip";
+    url = "https://example.com/DigitalLogicSim_Linux.zip";
     sha256 = "sha256-aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"; # ← from nix-prefetch
-    stripRoot = false;        # keep the directory structure
+    stripRoot = false; # keep the directory structure
   };
 
   nativeBuildInputs = [ makeWrapper ];
 
-  buildPhase = "true";        # binary-only
+  buildPhase = "true"; # binary-only
 
   installPhase = ''
     mkdir -p $out/opt/dls
@@ -31,10 +32,9 @@ stdenv.mkDerivation rec {
 
   meta = with lib; {
     description = "Minimalistic digital logic simulator by Sebastian Lague";
-    homepage    = "https://sebastian.itch.io/digital-logic-sim";
-    license     = licenses.mit;          # confirmed in upstream repo :contentReference[oaicite:1]{index=1}
-    platforms   = platforms.linux;
+    homepage = "https://sebastian.itch.io/digital-logic-sim";
+    license = licenses.mit; # confirmed in upstream repo :contentReference[oaicite:1]{index=1}
+    platforms = platforms.linux;
     maintainers = [ maintainers.yourname ];
   };
 }
-
