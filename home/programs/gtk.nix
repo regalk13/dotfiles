@@ -6,9 +6,25 @@
 
   gtk = {
     enable = true;
-    iconTheme = {
-      name = "SolArc-Dark";
+    theme = {
+      name = "SolArc";
       package = pkgs.solarc-gtk-theme;
+    };
+    iconTheme = {
+      name = "Adwaita";
+      package = pkgs.gnome.adwaita-icon-theme;
+    };
+    cursorTheme = {
+      name = "Adwaita";
+      package = pkgs.gnome.adwaita-icon-theme;
+    };
+    
+    gtk3.extraConfig = {
+        gtk-application-prefer-dark-theme = true;
+    };
+        
+    gtk4.extraConfig = {
+        gtk-application-prefer-dark-theme = true;
     };
   };
 }
