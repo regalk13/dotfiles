@@ -19,6 +19,7 @@
     # Desktop
     ../../modules/desktop/apps.nix
     ../../modules/desktop/fonts.nix
+    ../../modules/desktop/digital-logic-sim.nix
 
     # Networking
     ../../modules/networking/firewall.nix

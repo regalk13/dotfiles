@@ -34,6 +34,10 @@
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    digital-logic-sim = {
+        url = "github:regalk13/digital-logic-sim-flake";
+    };
   };
 
   outputs =
