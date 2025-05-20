@@ -24,6 +24,7 @@
     # Networking
     ../../modules/networking/firewall.nix
     ../../modules/networking/ssh.nix
+    ../../modules/networking/redis.nix
 
     # Hardware
     ../../modules/hardware/audio.nix
