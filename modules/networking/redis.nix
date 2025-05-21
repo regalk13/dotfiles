@@ -1,16 +1,18 @@
-{ config, pkgs, ... }:
+{ pkgs, ... }:
 {
   services.redis = {
-    enable = true;
     package = pkgs.redis;
+    servers."testing-server" = {
+      enable = true;
 
-
-    bind = "127.0.0.1";
-    port = 6379;
-    appendOnly = true;
+      bind = "127.0.0.1";
+      port = 6379;
+      appendOnly = true;
       # requirepass = "";
       # maxmemory = "1gb";
       # maxmemory-policy = "allkeys-lru";
+
+    };
   };
 
   fileSystems."/var/lib/redis" = {

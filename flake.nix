@@ -36,7 +36,7 @@
     };
 
     digital-logic-sim = {
-        url = "github:regalk13/digital-logic-sim-flake";
+      url = "github:regalk13/digital-logic-sim-flake";
     };
   };
 
