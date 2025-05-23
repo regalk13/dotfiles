@@ -78,4 +78,7 @@ runCommand "emacs-config"
     chmod -R a+w $out/* # give wrapProgram the required permissions
     wrapProgram $out/bin/emacs \
         --add-flags "--init-directory=${./.}"
+
+    wrapProgram $out/bin/emacsclient \
+        --add-flags "--create-frame --alternate-editor="
   ''
