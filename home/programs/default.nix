@@ -6,5 +6,6 @@
     ./media.nix
     ./xdg.nix
     ./gtk.nix
+    ./latex.nix
   ];
 }
