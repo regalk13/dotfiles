@@ -104,16 +104,6 @@
   ("C-c c" . org-capture)
 )
 
-;; Center the editor
-(defun os/org-mode-visual-fill ()
-  (setq visual-fill-column-width 150
-        visual-fill-column-center-text t)
-  (visual-fill-column-mode 1))
-(use-package visual-fill-column
-  :after org
-  :defer t
-  :hook (org-mode . os/org-mode-visual-fill))
-
 ;; Org-babel structure templates
 ;; You can use for example =<el TAB= to insert en elisp code block
 (use-package org-tempo
