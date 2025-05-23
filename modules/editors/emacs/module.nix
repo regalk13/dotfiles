@@ -16,5 +16,10 @@ in
 
   config = lib.mkIf config.regalk.emacs.enable {
     environment.systemPackages = [ emacsDrv ];
+
+    services.emacs = {
+      enable = true;
+      package = emacsDrv;
+    };
   };
 }
