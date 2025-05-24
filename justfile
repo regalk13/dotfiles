@@ -30,9 +30,6 @@ check:
 update *input:
     nix flake update
 
-serve:
-    nix run {{ flake }}#docs.serve
-
 clean:
     nix-collect-garbage --delete-older-than 3d
     nix store optimise

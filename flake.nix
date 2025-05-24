@@ -18,6 +18,11 @@
       url = "github:nix-community/neovim-nightly-overlay";
     };
 
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     treefmt-nix = {
       type = "github";
       owner = "numtide";
