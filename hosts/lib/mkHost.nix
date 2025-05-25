@@ -20,7 +20,7 @@ pkgs.lib.nixosSystem {
     inputs.lix.nixosModules.default
     "${self}/modules/editors/emacs/module.nix"
     hm.nixosModules.home-manager
-    inputs.stylix.nixosModules.stylix
+    # inputs.stylix.nixosModules.stylix
     {
       home-manager.useGlobalPkgs = true;
       home-manager.useUserPackages = true;

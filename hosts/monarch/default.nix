@@ -18,7 +18,7 @@
 
     # Desktop
     ../../modules/desktop/apps.nix
-    ../../modules/desktop/stylix.nix
+    # ../../modules/desktop/stylix.nix
     ../../modules/desktop/fonts.nix
     ../../modules/desktop/digital-logic-sim.nix
 
