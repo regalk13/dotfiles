@@ -5,7 +5,7 @@
     ./git.nix
     ./media.nix
     ./xdg.nix
-    ./gtk.nix
+    # ./gtk.nix
     ./latex.nix
   ];
 }
