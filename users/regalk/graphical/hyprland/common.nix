@@ -1,7 +1,4 @@
 {
-  wayland.windowManager.hyprland.settings."exec-once" = [
-    "hyprpaper &"
-  ];
   home.sessionVariables = {
     XCURSOR_SIZE = "24";
     HYPRCURSOR_THEME = "Adwaita";
