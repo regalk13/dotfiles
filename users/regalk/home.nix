@@ -7,6 +7,7 @@
     ../../home/shell
     ./graphical/hyprland
     ./graphical/waybar
+    ./graphical/hyprpaper
   ];
 
   programs.git = {

@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }:
+{ self, inputs, pkgs, ... }:
 {
   programs.hyprland = {
     enable = true;
@@ -34,7 +34,6 @@
     grim
     slurp
     wl-clipboard
-    hyprpaper
   ];
 
   programs.thunar.plugins = with pkgs.xfce; [
