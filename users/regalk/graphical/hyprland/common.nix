@@ -1,6 +1,5 @@
 {
   wayland.windowManager.hyprland.settings."exec-once" = [
-    "waybar &"
     "hyprpaper &"
   ];
   home.sessionVariables = {

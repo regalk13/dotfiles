@@ -6,6 +6,7 @@
     ../../home/rofi
     ../../home/shell
     ./graphical/hyprland
+    ./graphical/waybar
   ];
 
   programs.git = {

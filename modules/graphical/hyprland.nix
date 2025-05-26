@@ -31,7 +31,6 @@
   services.xserver.enable = true;
   services.xserver.displayManager.gdm.enable = true;
   environment.systemPackages = with pkgs; [
-    waybar
     grim
     slurp
     wl-clipboard
