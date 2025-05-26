@@ -24,9 +24,6 @@ switch *args: (builder "switch" args)
 provision host:
     nix run github:LnL7/nix-darwin -- switch --flake {{ flake }}#{{ host }}
 
-check:
-    nix flake check --no-allow-import-from-derivation
-
 update *input:
     nix flake update
 
