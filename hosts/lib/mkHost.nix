@@ -1,32 +1,39 @@
 { inputs, self }:
-{
-  name,
-  system ? "x86_64-linux",
-  username ? "regalk",
-  extraModules ? [ ],
+
+{ name
+, system ? "x86_64-linux"
+, username ? "regalk"
+, extraImports ? [ ]
+, extraSpecialArgs ? { }
 }:
 
 let
-  pkgs = inputs.nixpkgs;
-  hm = inputs.home-manager;
-in
-pkgs.lib.nixosSystem {
-  inherit system;
-  specialArgs = { inherit inputs username self; };
+  inherit (inputs) nixpkgs home-manager;
 
-  modules = extraModules ++ [
+  pkgs = inputs.nixpkgs;
+
+  baseModules = [
     "${self}/hosts/${name}"
     "${self}/users/${username}/nixos.nix"
-    inputs.lix.nixosModules.default
     "${self}/modules/editors/emacs/module.nix"
-    hm.nixosModules.home-manager
+
+    home-manager.nixosModules.home-manager
     # inputs.stylix.nixosModules.stylix
-    {
-      home-manager.useGlobalPkgs = true;
-      home-manager.useUserPackages = true;
-      home-manager.extraSpecialArgs = { inherit inputs system username; };
-      home-manager.users.${username} = import "${self}/users/${username}/home.nix";
-      home-manager.sharedModules = [ (self + /home/default.nix) ];
-    }
+
+    ({ config, ... }: {
+      home-manager = {
+        useGlobalPkgs = true;
+        useUserPackages = true;
+        extraSpecialArgs = { inherit inputs system username; };
+        sharedModules   = [ (self + /home/default.nix) ];
+        users.${username} = import "${self}/users/${username}/home.nix";
+      };
+    })
   ];
+
+in 
+pkgs.lib.nixosSystem {
+  inherit system;
+  specialArgs = { inherit inputs self username; } // extraSpecialArgs;
+  modules     = baseModules ++ extraImports;
 }

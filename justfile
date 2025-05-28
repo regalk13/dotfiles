@@ -12,7 +12,7 @@ rebuild goal *args:
 
 [private]
 builder goal *args:
-    nh {{ nh_target }} {{ goal }} {{ args }}
+    nh {{ nh_target }} {{ goal }} .#nixosConfigurations.{{ args }}
 
 boot *args: (builder "boot" args)
 

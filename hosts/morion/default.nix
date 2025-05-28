@@ -6,31 +6,6 @@
 
 {
   imports = [
-
-    ../../modules/graphical/hyprland.nix
-    # ../../modules/graphical/i3.nix
-    # ../../modules/browsers/zen-browser.nix
-    # CLI
-    ../../modules/cli/tools.nix
-
-    # Core
-    ../../modules/core
-
-    # Desktop
-    ../../modules/desktop/apps.nix
-    # ../../modules/desktop/stylix.nix
-    ../../modules/desktop/fonts.nix
-    ../../modules/desktop/digital-logic-sim.nix
-
-    # Networking
-    ../../modules/networking/firewall.nix
-    ../../modules/networking/ssh.nix
-    ../../modules/networking/redis.nix
-
-    # Hardware
-    ../../modules/hardware/audio.nix
-    ../../modules/hardware/sensors.nix
-
     # Include the results of the hardware scan.
     ./hardware.nix
   ];
@@ -44,7 +19,7 @@
   # ugly module
   regalk.emacs.enable = true;
 
-  networking.hostName = "monarch"; # Define your hostname.
+  networking.hostName = "morion"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Configure network proxy if necessary
