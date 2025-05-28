@@ -16,7 +16,7 @@ Lo, here standeth my work in progress: a NixOS flake hight _Lothlórien_. As the
 
 ## Overview
 
-- [Morion](https://github.com/regalk13/dotfiles/tree/main/hosts/morion) (_Black Rock_): My main NixOS machine, a full AMD (ryzen, radeon) Desktop PC, for work and learn.
+- [Morion](https://github.com/regalk13/dotfiles/tree/main/hosts/morion) (_Black Stone_): My main NixOS machine, a full AMD (ryzen, radeon) Desktop PC, for work and learn.
 
 - ...
 
