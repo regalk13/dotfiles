@@ -1,5 +1,5 @@
 <h1 id="header" align="center">
-  <img src="https://tolkiengateway.net/w/images/e/e3/J.R.R._Tolkien_-_The_Forest_of_Lothlorien_in_Spring.jpg" width=200 />
+  <img src="https://github.com/regalk13/dotfiles/blob/main/assets/lothlorien.jpg?raw=true" width=200 />
   <br />
   Lothlórien
 </h1>
