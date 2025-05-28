@@ -23,3 +23,4 @@ Lo, here standeth my work in progress: a NixOS flake hight _Lothlórien_. As the
 
 ## License
 
+GPL 3.0 
