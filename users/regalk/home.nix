@@ -5,6 +5,7 @@
     ../../home/programs
     ../../home/rofi
     ../../home/shell
+    ../../home/rss.nix
     ./graphical/hyprland
     ./graphical/waybar
     ./graphical/hyprpaper
