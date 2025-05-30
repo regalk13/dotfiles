@@ -6,7 +6,23 @@ let
       tags = [ "youtube" ];
       url = "https://rsshub.app/youtube/user/@${userNames}";
     }) users;
-
+  news = [
+    {
+      tags = [
+        "linux"
+        "news"
+        "hardware"
+      ];
+      url = "https://www.phoronix.com/rss.php";
+    }
+    {
+      tags = [
+        "linux"
+        "news"
+      ];
+      url = "https://www.cyberciti.com/atom/atom.xml";
+    }
+  ];
   mathFeeds = [
     {
       tags = [ "math" ];
@@ -145,6 +161,22 @@ let
       ];
       url = "https://commandpattern.org/feed/";
     }
+    {
+      tags = [
+        "cs"
+        "systems"
+        "ml"
+      ];
+      url = "https://ludwigabap.bearblog.dev/feed/";
+    }
+    {
+      tags = [
+        "systems"
+        "AI"
+        "singularity"
+      ];
+      url = "http://lesserwrong.com/feed.xml";
+    }
   ];
 in
 {
@@ -156,6 +188,7 @@ in
       youTubeFeeds [
         "LukeSmithxyz"
       ]
+      ++ news
       ++ mathFeeds
       ++ embeddedFeeds
       ++ rustFeeds
