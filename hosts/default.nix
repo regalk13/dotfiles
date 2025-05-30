@@ -13,6 +13,7 @@ in
         ../modules/core
         ../modules/desktop/apps.nix
         ../modules/desktop/fonts.nix
+        ../modules/desktop/digital-logic-sim.nix
         ../modules/networking/firewall.nix
         ../modules/networking/ssh.nix
         ../modules/networking/redis.nix
