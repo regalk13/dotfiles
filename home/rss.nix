@@ -26,6 +26,19 @@ let
       ];
       url = "https://jeremykun.com/feed/";
     } # Math ∩ Programming
+    {
+      tags = [
+        "math"
+        "science"
+      ];
+      url = "https://www.quantamagazine.org/feed/";
+    }
+    {
+      tags = [
+        "math"
+      ];
+      url = "https://eli.thegreenplace.net/feeds/all.atom.xml";
+    }
   ];
 
   embeddedFeeds = [
@@ -40,6 +53,14 @@ let
       tags = [ "embedded" ];
       url = "https://embeddedartistry.com/feed/";
     } # Embedded Artistry
+    {
+      tags = [ "embedded" ];
+      url = "https://porzechowski.github.io/blog/feed.xml";
+    }
+    {
+      tags = [ "embedded" ];
+      url = "https://www.ganssle.com/blog/feed.rss";
+    }
   ];
 
   rustFeeds = [
@@ -74,6 +95,56 @@ let
       ];
       url = "https://nullprogram.com/feed/";
     } # Null Program
+    {
+      tags = [
+        "pentesting"
+      ];
+      url = "https://128nops.blogspot.com/rss.xml";
+    }
+    {
+      tags = [
+        "systems"
+      ];
+      url = "https://queue.acm.org/rss/feeds/queuecontent.xml";
+    }
+    {
+      tags = [
+        "zig"
+        "systems"
+      ];
+      url = "https://andrewkelley.me/rss.xml";
+    }
+    {
+      tags = [
+        "systems"
+        "rust"
+        "functional"
+        "ocaml"
+      ];
+      url = "https://priver.dev/blog/index.xml";
+    }
+    {
+      tags = [
+        "systems"
+        "singularity"
+      ];
+      url = "https://geohot.github.io/blog/feed.xml";
+    }
+    {
+      tags = [
+        "cs"
+        "systems"
+      ];
+      url = "https://www.rfleury.com/feed";
+    }
+    {
+      tags = [
+        "cs"
+        "systems"
+        "robotics"
+      ];
+      url = "https://commandpattern.org/feed/";
+    }
   ];
 in
 {
