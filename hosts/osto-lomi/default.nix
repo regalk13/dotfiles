@@ -37,14 +37,20 @@
   #########################
   # SSH & Root Access     #
   #########################
-  services.openssh.enable = true;
 
-  services.openssh.permitRootLogin = "prohibit-password";
 
-  users.users.root.openssh.authorizedKeys.keys = [
-    # Replace this by your pubkey!
-    "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDbUbQwux64pQVTl/tUvREa8UX1V7572BU9WHli9h/L0 72028266+regalk13@users.noreply.github.com"
-  ];
+  services.openssh = {
+    enable = true;
+    ports = [ 22 ];
+    settings = {
+      PasswordAuthentication = false;
+      AllowUsers = ["regalk"];
+      UseDns = true;
+      X11Forwarding = false;
+      PermitRootLogin = "no";
+    };
+  };
+
   ############################
   # System Version & Packages #
   ############################
