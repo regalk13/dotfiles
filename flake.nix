@@ -36,6 +36,8 @@
     digital-logic-sim = {
       url = "github:regalk13/digital-logic-sim-flake";
     };
+
+    disko.url = "github:nix-community/disko";
   };
 
   outputs =
@@ -48,6 +50,7 @@
         ./formatter.nix
         ./hosts
       ];
+
       systems = [
         "x86_64-linux"
       ];

@@ -1,9 +1,15 @@
-{ inputs, self }:
+{
+  inputs,
+  self,
+  lib,
+  ...
+}:
 
 {
   name,
   system ? "x86_64-linux",
   username ? "regalk",
+  desktop ? true,
   extraImports ? [ ],
   extraSpecialArgs ? { },
 }:
@@ -13,17 +19,18 @@ let
 
   pkgs = inputs.nixpkgs;
 
-  baseModules = [
-    "${self}/hosts/${name}"
-    "${self}/users/${username}/nixos.nix"
-    "${self}/modules/editors/emacs/module.nix"
+  baseModules =
+    [
+      "${self}/hosts/${name}"
+    ]
+    ++ lib.optionals desktop [
 
-    home-manager.nixosModules.home-manager
-    # inputs.stylix.nixosModules.stylix
+      "${self}/users/${username}/nixos.nix"
+      "${self}/modules/editors/emacs/module.nix"
 
-    (
-      _:
-      {
+      home-manager.nixosModules.home-manager
+      # inputs.stylix.nixosModules.stylix
+      (_: {
         home-manager = {
           useGlobalPkgs = true;
           useUserPackages = true;
@@ -31,9 +38,8 @@ let
           sharedModules = [ (self + /home/default.nix) ];
           users.${username} = import "${self}/users/${username}/home.nix";
         };
-      }
-    )
-  ];
+      })
+    ];
 
 in
 pkgs.lib.nixosSystem {
