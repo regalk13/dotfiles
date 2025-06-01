@@ -33,6 +33,8 @@ in
       extraImports = [
         ../modules/cli/tools.nix
         ../modules/core
+        inputs.regalk-website.nixosModules.default
+        ../modules/server
       ];
     };
   };

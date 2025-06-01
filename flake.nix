@@ -38,6 +38,10 @@
     };
 
     disko.url = "github:nix-community/disko";
+
+    regalk-website = {
+      url = "github:regalk13/regalk-website";
+    };
   };
 
   outputs =

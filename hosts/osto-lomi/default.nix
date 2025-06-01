@@ -43,7 +43,7 @@
     ports = [ 22 ];
     settings = {
       PasswordAuthentication = false;
-      AllowUsers = ["regalk"];
+      AllowUsers = [ "regalk" ];
       UseDns = true;
       X11Forwarding = false;
       PermitRootLogin = "no";
@@ -80,6 +80,7 @@
   networking.firewall.enable = true;
   networking.firewall.allowedTCPPorts = [
     22
+    80
     443
   ];
   networking.firewall.allowedUDPPorts = [ ];
