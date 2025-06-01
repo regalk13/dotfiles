@@ -35,9 +35,8 @@
   ];
 
   #########################
-  # SSH & Root Access     #
+  # SSH Access     #
   #########################
-
 
   services.openssh = {
     enable = true;
@@ -74,9 +73,6 @@
   ###########################
   time.timeZone = "UTC";
   i18n.defaultLocale = "en_US.UTF-8";
-
-  # (If you want swap, you can add a swap file or partition here)
-  # swapDevices = [ { device = "/swapfile"; } ];
 
   ####################
   # Firewall (opt)   #
