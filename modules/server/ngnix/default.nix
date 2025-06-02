@@ -84,6 +84,6 @@ in
     defaults.email = "contact@regalk.dev";
   };
 
-  services.regalk.enable  = true;
-  services.regalk.address = "0.0.0.0:3000"; 
+  services.regalk.enable = true;
+  services.regalk.address = "0.0.0.0:3000";
 }
