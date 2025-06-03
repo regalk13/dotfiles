@@ -34,6 +34,7 @@ in
         ../modules/cli/tools.nix
         ../modules/core
         inputs.regalk-website.nixosModules.default
+        inputs.agenix.nixosModules.default
         ../modules/server
       ];
     };

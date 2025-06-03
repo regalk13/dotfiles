@@ -42,6 +42,10 @@
     regalk-website = {
       url = "github:regalk13/regalk-website";
     };
+
+    agenix = {
+      url = "github:ryantm/agenix";
+    };
   };
 
   outputs =
