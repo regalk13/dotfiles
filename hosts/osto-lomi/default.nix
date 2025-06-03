@@ -84,4 +84,19 @@
     443
   ];
   networking.firewall.allowedUDPPorts = [ ];
+
+  networking.interfaces.eno1 = {
+    ipv6.addresses = [
+      {
+        address = "2001:41d0:303:1e79::1";
+        prefixLength = 64;
+      }
+    ];
+
+  };
+
+  networking.defaultGateway6 = {
+    address = "2001:41d0:0303:1eff:00ff:00ff:00ff:00ff";
+    interface = "eno1";
+  };
 }

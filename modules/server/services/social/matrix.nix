@@ -1,8 +1,14 @@
-_:
+{ self, config, ... }:
 let
   fqdn = "matrix.regalk.dev";
 in
 {
+
+  age.secrets.matrix-secret = {
+    file = "${self}/secrets/matrix-secret.age";
+    owner = "matrix-synapse";
+  };
+
   services = {
     nginx = {
       virtualHosts = {
@@ -27,7 +33,7 @@ in
     matrix-synapse = {
       enable = true;
 
-      # extraConfigFiles = [config.age.secrets.matrix-secret.path];
+      extraConfigFiles = [ config.age.secrets.matrix-secret.path ];
       settings = {
         server_name = "regalk.dev";
         public_baseurl = "https://matrix.regalk.dev";
@@ -35,7 +41,7 @@ in
         database = {
           name = "psycopg2";
           args = {
-            database = "matrix-synapse";
+            database = "synapse";
             user = "matrix-synapse";
             cp_min = 5;
             cp_max = 10;
