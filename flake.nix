@@ -50,6 +50,9 @@
       url = "github:ryantm/agenix";
     };
 
+    helix = {
+      url = "github:helix-editor/helix";
+    };
   };
 
   outputs =

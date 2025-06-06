@@ -14,7 +14,6 @@
     vscodium
     #  inputs.zen-browser.packages."${system}".twilight
     inputs.neovim-nightly-overlay.packages.${pkgs.system}.default
-    helix
     # utils
     ripgrep
     htop
@@ -46,8 +45,6 @@
     sioyek
 
     rofi
-
-    helix
   ];
   programs = {
     tmux = {
