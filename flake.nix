@@ -28,6 +28,7 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
 
     hyprland.url = "github:hyprwm/Hyprland";
+
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
@@ -37,7 +38,9 @@
       url = "github:regalk13/digital-logic-sim-flake";
     };
 
-    disko.url = "github:nix-community/disko";
+    disko = {
+      url = "github:nix-community/disko";
+    };
 
     regalk-website = {
       url = "github:regalk13/regalk-website";
@@ -46,6 +49,7 @@
     agenix = {
       url = "github:ryantm/agenix";
     };
+
   };
 
   outputs =

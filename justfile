@@ -25,14 +25,14 @@ provision host:
     nix run github:LnL7/nix-darwin -- switch --flake {{ flake }}#{{ host }}
 
 update *input:
-    nix flake update {{input}} # Added {{input}} to allow specific flake updates
+    nix flake update {{ input }} # Added {{ input }} to allow specific flake updates
 
 clean:
     nix-collect-garbage --delete-older-than 3d
     nix store optimise
 
 deploy-remote flake_config_name target_ssh_host_string:
-    @echo "Deploying NixOS configuration .#{{flake_config_name}} to {{target_ssh_host_string}}..."
-    nixos-rebuild --flake .#{{flake_config_name}} \
-      --target-host {{target_ssh_host_string}} \
+    @echo "Deploying NixOS configuration .#{{ flake_config_name }} to {{ target_ssh_host_string }}..."
+    nixos-rebuild --flake .#{{ flake_config_name }} \
+      --target-host {{ target_ssh_host_string }} \
       --use-remote-sudo switch

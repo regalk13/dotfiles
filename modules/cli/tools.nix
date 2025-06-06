@@ -38,7 +38,6 @@ in
       with pkgs;
       [
         vim
-        neovim
         wget
         curl
         git
