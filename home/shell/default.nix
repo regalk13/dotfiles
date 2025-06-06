@@ -10,6 +10,7 @@ in
     ./common.nix
     ./starship.nix
     ./terminals.nix
+    ./tmux.nix
   ];
 
   # add environment variables
