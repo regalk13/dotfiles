@@ -28,13 +28,13 @@
     package32 = pkgs.pkgsi686Linux.mesa;
   };
 
-  services.xserver.enable = true;
+  services.xserver.enable = true;E
   services.displayManager.gdm.enable = true;
   environment.systemPackages = with pkgs; [
     grim
     slurp
     wl-clipboard
-
+    kdePackages.qtdeclarative
     # QuickShell for hyprland
     inputs.quickshell.packages.${pkgs.system}.default
   ];
