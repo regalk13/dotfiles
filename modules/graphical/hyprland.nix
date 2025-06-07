@@ -28,7 +28,7 @@
     package32 = pkgs.pkgsi686Linux.mesa;
   };
 
-  services.xserver.enable = true;E
+  services.xserver.enable = true;
   services.displayManager.gdm.enable = true;
   environment.systemPackages = with pkgs; [
     grim
