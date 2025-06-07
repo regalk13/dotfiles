@@ -34,7 +34,12 @@
     grim
     slurp
     wl-clipboard
+
+    # QuickShell for hyprland
+    inputs.quickshell.packages.${pkgs.system}.default
   ];
+
+  qt.enable = true;
 
   programs.thunar.plugins = with pkgs.xfce; [
     thunar-archive-plugin
