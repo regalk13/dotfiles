@@ -49,15 +49,11 @@ in
       "SUPER SHIFT, 9, movetoworkspace, 9"
       "SUPER SHIFT, 0, movetoworkspace, 10"
 
-      # special workspace (scratchpad)
-      "SUPER, S, togglespecialworkspace, magic"
-      "SUPER SHIFT, S, movetoworkspace, special:magic"
-
       # workspace scrolling
       "SUPER, mouse_down, workspace, e+1"
       "SUPER, mouse_up,   workspace, e-1"
 
-      "SHIFT, S, exec, grim -g \"$(slurp)\" - | wl-copy"
+      "SUPER SHIFT, S, exec, grim -g \"$(slurp)\" - | wl-copy"
     ];
 
     #####################################################
